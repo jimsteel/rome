@@ -104,11 +104,7 @@ public abstract class BaseWireFeedGenerator implements WireFeedGenerator {
     protected void generateForeignMarkup(final Element element, final List<Element> foreignElements) {
         if (foreignElements != null) {
             for (final Element foreignElement : foreignElements) {
-                final Parent parent = foreignElement.getParent();
-                if (parent != null) {
-                    parent.removeContent(foreignElement);
-                }
-                element.addContent(foreignElement);
+                element.addContent(foreignElement.clone());
             }
         }
     }
